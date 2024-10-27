@@ -12,8 +12,48 @@ import MemoryGame from "./components/Memory-game.jsx";
 //   Title + Scoreboard + CardTable >
 //     Card
 
+// temp, should get from api
+const cardList = [
+  {
+    id: 0,
+    title: "First card",
+    description: "This is the first card",
+    imgUrl: "https://picsum.photos/200",
+  },
+  {
+    id: 1,
+    title: "Second card",
+    description: "This is the second card",
+    imgUrl: "https://picsum.photos/201",
+  },
+  {
+    id: 2,
+    title: "third card",
+    description: "This is the third card",
+    imgUrl: "https://picsum.photos/202",
+  },
+  {
+    id: 3,
+    title: "Fourth card",
+    description: "This is the fourth card",
+    imgUrl: "https://picsum.photos/199",
+  },
+  {
+    id: 4,
+    title: "Fifth card",
+    description: "This is the fifth card",
+    imgUrl: "https://picsum.photos/198",
+  },
+  {
+    id: 5,
+    title: "Sixth card",
+    description: "This is the Sixth card",
+    imgUrl: "https://picsum.photos/203",
+  },
+];
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <MemoryGame></MemoryGame>
+    <MemoryGame cardList={cardList} deckSize={3}></MemoryGame>
   </StrictMode>
 );
