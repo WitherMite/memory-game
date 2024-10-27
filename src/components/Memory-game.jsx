@@ -5,19 +5,12 @@ import { shuffleArr } from "../helpers.js";
 
 export default function MemoryGame({ deckSize, cardList }) {
   const [pickedCardIds, setPickedCardIds] = useState([]);
-  const [cards, setCards] = useState(getCards(deckSize));
+  const [cards, setCards] = useState(getCards());
   const [topScore, setTopScore] = useState(0);
   const [score, setScore] = useState(0);
   const remainingCards = cards.filter(
     (card) => !pickedCardIds.includes(card.id)
   );
-
-  function resetGame() {
-    score > topScore && setTopScore(score);
-    setCards(getCards(deckSize));
-    setPickedCardIds([]);
-    setScore(0);
-  }
 
   function getCards(pickId, getNew) {
     const newCards = shuffleArr(cardList);
@@ -26,12 +19,16 @@ export default function MemoryGame({ deckSize, cardList }) {
     const uniqueCardIndex = newCards.findIndex(
       (card) => !pickedCardIds.includes(card.id) && pickId !== card.id
     );
-    if (uniqueCardIndex === -1) {
-      resetGame();
-      return [];
-    }
+    if (uniqueCardIndex === -1) return [];
     const [uniqueCard] = newCards.splice(uniqueCardIndex, 1);
     return [...newCards.slice(0, deckSize - 1), uniqueCard];
+  }
+
+  function resetGame() {
+    score > topScore && setTopScore(score);
+    setCards(getCards());
+    setPickedCardIds([]);
+    setScore(0);
   }
 
   function nextRound(pickId) {
@@ -39,7 +36,7 @@ export default function MemoryGame({ deckSize, cardList }) {
     newScore > topScore && setTopScore(newScore);
     if (remainingCards.length <= 1) {
       const newCards = getCards(pickId, true);
-      if (newCards.length === 0) return;
+      if (newCards.length === 0) return resetGame();
       setCards(newCards);
     }
     setScore(newScore);
