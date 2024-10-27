@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import MemoryGame from "./components/Memory-game.jsx";
 
 // get pokemon name/images from api (seems best to get whole pokemon list and keep in local storage); https://pokeapi.co/docs/v2#info
 
@@ -10,4 +11,9 @@ import { createRoot } from "react-dom/client";
 // MemoryGame(has to contain state/effects since all reactive components will need them and the gamestate is interconnected) >
 //   Title + Scoreboard + CardTable >
 //     Card
-createRoot(document.getElementById("root")).render(<StrictMode></StrictMode>);
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <MemoryGame></MemoryGame>
+  </StrictMode>
+);
