@@ -55,7 +55,10 @@ export default function MemoryGame({ deckSize, cardList }) {
     <main className="memory-game">
       <header className="Title">
         <h1>Memory Game</h1>
-        <p>Instructions...</p>
+        <p>
+          Pick a card. If you haven&apos;t chose that card before, gain a point.
+          Max score: {cardList.length}
+        </p>
       </header>
       <Scoreboard score={score} topScore={topScore}></Scoreboard>
       <CardTable cards={cards} handleChoice={pickCard}></CardTable>
