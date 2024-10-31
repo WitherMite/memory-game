@@ -1,7 +1,10 @@
 import pokeballImg from "./assets/official-artwork-pokeball.png";
 
+// Add cache?
+
 export default class PokeApiInterface {
   // TODO: Error handling
+  // when errors are handled and not thrown up to components, it causes an infinite loop... unsure how to fix.
   static async #getResource(url) {
     const response = await fetch(url);
     const resource = await response.json();
