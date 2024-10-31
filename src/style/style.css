@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+}
+
+body {
+}
+
+#root {
+    padding: 1.5rem;
+}
+
+.memory-game {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+}
+
+.scoreboard {
+    place-self: start end;
+}
+
+.current-score,
+.title h1,
+.game-card-title,
+.game-card-img {
+    margin-bottom: 0.5rem;
+}
+
+.card-table {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.game-card {
+    padding: 0.25rem;
+}
+
+.game-card-img {
+    width: 90%;
+}

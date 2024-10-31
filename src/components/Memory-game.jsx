@@ -53,7 +53,7 @@ export default function MemoryGame({ deckSize, cardList }) {
 
   return (
     <main className="memory-game">
-      <header className="Title">
+      <header className="title">
         <h1>Memory Game</h1>
         <p>
           Pick a card. If you haven&apos;t chose that card before, gain a point.
