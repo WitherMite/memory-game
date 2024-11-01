@@ -3,11 +3,10 @@ import pokeballImg from "./assets/official-artwork-pokeball.png";
 // Add cache?
 
 export default class PokeApiInterface {
-  // TODO: Error handling
-  // when errors are handled and not thrown up to components, it causes an infinite loop... unsure how to fix.
+  // handle errors in the components instead so we can set the component props to fallback vals and avoid infinite loops? (Worked)
   static async #getResource(url) {
     const response = await fetch(url);
-    const resource = await response.json();
+    const resource = response.json();
     return resource;
   }
 
