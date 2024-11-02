@@ -7,10 +7,15 @@ import PokeApiInterface from "./Pokeapi-interface.js";
 
 // should have wrote api calls to be in components, the separate interface was a bad idea.
 
-const pokemon = new PokeApiInterface();
-await pokemon.init(); // could handle errors, but realistically entire page is broken anyway if cant get card list
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <MemoryGame cardList={pokemon.cardList} deckSize={12}></MemoryGame>
-  </StrictMode>
-);
+initPage();
+
+async function initPage() {
+  const pokemon = new PokeApiInterface();
+  await pokemon.init(); // could handle errors, but realistically entire page is broken anyway if cant get card list
+
+  createRoot(document.getElementById("root")).render(
+    <StrictMode>
+      <MemoryGame cardList={pokemon.cardList} deckSize={12}></MemoryGame>
+    </StrictMode>
+  );
+}
