@@ -6,7 +6,7 @@ export default class PokeApiInterface {
   // handle errors in the components instead so we can set the component props to fallback vals and avoid infinite loops? (Worked)
   static async #getResource(url) {
     const response = await fetch(url);
-    const resource = response.json();
+    const resource = await response.json();
     return resource;
   }
 
