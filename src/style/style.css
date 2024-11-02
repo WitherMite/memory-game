@@ -17,11 +17,17 @@ body {
 .memory-game {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 1rem;
 }
 
 .scoreboard {
     place-self: start end;
+    margin-left: 1rem;
+    min-width: max-content;
+}
+
+.scoreboard,
+.title p {
+    margin-bottom: 1rem;
 }
 
 .current-score,
@@ -39,9 +45,35 @@ body {
 }
 
 .game-card {
-    padding: 0.25rem;
+    padding: 1rem;
+    padding-top: 0.25rem;
 }
 
 .game-card-img {
     width: 90%;
+}
+
+@media (max-width: 1000px) {
+    .card-table {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .memory-game {
+        display: block;
+    }
+
+    .scoreboard {
+        place-self: inherit;
+        margin-left: 0;
+    }
+
+    .game-card-description {
+        display: none;
+    }
+
+    .game-card-title {
+        margin: 0;
+    }
 }
